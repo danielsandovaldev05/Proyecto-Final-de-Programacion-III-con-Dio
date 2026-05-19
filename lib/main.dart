@@ -18,7 +18,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Proyecto Final UMG',
+      title: 'Proyecto Final Programación III',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
