@@ -38,6 +38,7 @@ dependencies:
   #dependencia para usar DIO y dotenv
   dio: ^5.7.0
   flutter_dotenv: ^5.1.0
+  ffi: ^2.2.0
 
 dev_dependencies:
   flutter_test:
