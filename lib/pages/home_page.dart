@@ -142,8 +142,8 @@ class _HomePageState extends State<HomePage> {
     ).showSnackBar(const SnackBar(content: Text("Restaurando datos...")));
 
     // Volvemos a pedir los datos a la API
-    List<TodoModel> tareas = await _apiService
-        .obtenerTareas(); // Asegura de que retorne la lista
+    print("Reestableciendo tareas: Obteniendo datos de la API...");
+    List<TodoModel> tareas = await _apiService.obtenerTareas(); // Asegura de que retorne la lista
     _sincronizarConNativo(tareas);
 
     setState(() {
