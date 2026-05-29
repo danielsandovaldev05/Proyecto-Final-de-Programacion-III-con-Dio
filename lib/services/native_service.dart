@@ -52,11 +52,13 @@ class NativeService {
     return contar(_manager);
   }
 
+  // Validación: Busca una tarea por ID en la memoria de C++
   bool buscar(int id) {
     final buscar = _nativeLib.lookupFunction<BuscarFunc, Buscar>('buscar_todo');
     return buscar(_manager, id);
   }
 
+  // Validación: Elimina una tarea por ID de la memoria de C++
   bool eliminar(int id) {
     final eliminar = _nativeLib.lookupFunction<EliminarFunc, Eliminar>('eliminar_todo');
     return eliminar(_manager, id);

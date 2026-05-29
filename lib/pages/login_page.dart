@@ -8,6 +8,7 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
+// Página de Login con validación simulada
 class _LoginPageState extends State<LoginPage> {
   final _usuarioController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -24,6 +25,14 @@ class _LoginPageState extends State<LoginPage> {
         const SnackBar(content: Text('Usuario o contraseña incorrectos (admin / 1234)')),
       );
     }
+  }
+
+  // Limpiar los controladores al cerrar la página para evitar fugas de memoria
+  @override
+  void dispose() {
+    _usuarioController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 
   @override

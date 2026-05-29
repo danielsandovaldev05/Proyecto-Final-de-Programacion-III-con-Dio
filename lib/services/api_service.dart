@@ -8,7 +8,7 @@ class ApiService {
 
   Future<List<TodoModel>> obtenerTareas() async {
     try {
-      // Tomamos la URL directamente del archivo .env de forma segura
+      // Tomar la URL directamente del archivo .env de forma segura
       final String urlApi = dotenv.env['URL_API'] ?? '';
       
       if (urlApi.isEmpty) {
