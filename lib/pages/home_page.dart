@@ -201,6 +201,38 @@ class _HomePageState extends State<HomePage> {
           return const Center(child: Text('No hay datos disponibles.'));
         },
       ),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            heroTag: "btn_Buscar",
+            backgroundColor: Colors.blue,
+            onPressed: _buscarConDialogo,
+            tooltip: 'Buscar en C++',
+            child: const Icon(Icons.search, color: Colors.white),
+          ),
+          const SizedBox(height: 16), // Espacio entre los botones
+          FloatingActionButton(
+            heroTag: "btnReestablecer",
+            backgroundColor: Colors.green,
+            onPressed: _reestablecerTareas,
+            tooltip: 'Reestablecer Tareas',
+            child: const Icon(Icons.refresh, color: Colors.white),
+          ),
+          const SizedBox(height: 16), // Espacio entre los botones
+          // Botón para limpiar filtro (Regresar al inicio)
+          FloatingActionButton(
+            heroTag: "btn_limpiar",
+            backgroundColor: Colors.orange,
+            onPressed: () {
+              setState(() {
+                _futureTodos = Future.value(_listaCompleta); // Restauramos la vista con el respaldo
+              });
+          },
+            child: const Icon(Icons.home, color: Colors.white),
+          ),
+        ],
+    ),
     );
   }
 }
