@@ -152,10 +152,17 @@ class _HomePageState extends State<HomePage> {
   }
 
   // El método build es donde se construye la interfaz de usuario de la página principal, mostrando la lista de tareas y los botones de acción.
+<<<<<<< HEAD
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // El AppBar con un botón de logout que regresa al LoginPage
+=======
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+>>>>>>> 1fd90415736f1d3482755843a5d677f3a3d9401d
       appBar: AppBar(
         title: const Text('Menú Principal - Tareas'),
         backgroundColor: Colors.blue,
@@ -172,8 +179,11 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+<<<<<<< HEAD
 
       // El cuerpo de la página muestra un FutureBuilder que se encarga de manejar la carga de datos desde la API y mostrar la lista de tareas.
+=======
+>>>>>>> 1fd90415736f1d3482755843a5d677f3a3d9401d
       body: FutureBuilder<List<TodoModel>>(
         future: _futureTodos,
         builder: (context, snapshot) {
@@ -183,16 +193,20 @@ class _HomePageState extends State<HomePage> {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (snapshot.hasData) {
             final tareas = snapshot.data!;
+<<<<<<< HEAD
 
             // Activar la sincronización en tiempo real
             // Justo aquí, cuando snapshot.hasData es verdadero, para saber que la API ya respondió con éxito.
             _sincronizarConNativo(tareas);
 
+=======
+>>>>>>> 1fd90415736f1d3482755843a5d677f3a3d9401d
             return ListView.builder(
               itemCount: tareas.length,
               itemBuilder: (context, index) {
                 final tarea = tareas[index];
                 return ListTile(
+<<<<<<< HEAD
                   // El ID de la tarea a la izquierda
                   leading: CircleAvatar(
                     backgroundColor: Colors.blue.shade100,
@@ -254,6 +268,15 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
+=======
+                  leading: CircleAvatar(child: Text('${tarea.idTarea}')),
+                  title: Text(tarea.titulo),
+                  trailing: Icon(
+                    tarea.estaCompletada
+                        ? Icons.check_circle
+                        : Icons.pending_actions,
+                    color: tarea.estaCompletada ? Colors.green : Colors.orange,
+>>>>>>> 1fd90415736f1d3482755843a5d677f3a3d9401d
                   ),
                 );
               },
@@ -262,6 +285,7 @@ class _HomePageState extends State<HomePage> {
           return const Center(child: Text('No hay datos disponibles.'));
         },
       ),
+<<<<<<< HEAD
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -296,6 +320,8 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+=======
+>>>>>>> 1fd90415736f1d3482755843a5d677f3a3d9401d
     );
   }
 }
