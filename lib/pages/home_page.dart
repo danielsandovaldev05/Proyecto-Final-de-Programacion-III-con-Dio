@@ -65,16 +65,18 @@ class _HomePageState extends State<HomePage> {
 // Función de prueba: Eliminar en C++
   void _testEliminar(int id) {
     bool eliminado = _nativeService.eliminar(id);
-    if (eliminado) {
-    // Si se borró en C++, ahora limpiamos la UI
-      _futureTodos.then((listaDeTareas) {
+      if (eliminado) {
         setState(() {
-          listaDeTareas.removeWhere((tarea) => tarea.idTarea == id);
+          _listaCompleta.removeWhere((tarea) => tarea.idTarea == id);
+          _futureTodos = Future.value(List.from(_listaCompleta));
         });
-      });
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('ID $id eliminado de RAM y pantalla')));
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Error al eliminar en C++')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('ID $id eliminado de RAM y pantalla')),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Error al eliminar en C++')),
+        );
     }
   }
 
